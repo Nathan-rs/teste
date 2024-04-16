@@ -1,0 +1,122 @@
+.fg {
+  width: 100%;
+  border: 1px solid $color-secondary;
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin: 0 5px;
+  margin-top: 1rem;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: $color-third;
+
+  &:first-child:first-of-type{
+    margin-top: 0;
+  }
+
+  &.hasError{
+    border: 1px solid $color-danger !important;
+
+    .fg-hd-if-ic {
+      color: $color-danger !important;
+    }
+    .fg-hd-if-tt {
+      color: $color-danger !important;
+    }
+  }
+
+  //O header
+  .fg-hd {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2rem;
+
+    &.isToggle {
+      cursor: pointer;
+    }
+
+    //A parte de informações
+    .fg-hd-if {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+
+      //O Icone
+      .fg-hd-if-ic {
+        width: 20px;
+        height: 20px;
+        color: $color-primary;
+      }
+
+      //O título
+      .fg-hd-if-tt {
+        font-size: 14px;
+        font-weight: 600;
+        color: $color-primary;
+      }
+
+      //A descrição
+      .fg-hd-if-dsc {
+        font-size: 12px;
+        color: $color-default;
+        font-weight: 400;
+        margin-top: 0.5rem;
+      }
+    }
+
+    //As opções do header
+    .fg-hd-opt {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+
+      //O item do acordion
+      .fg-hd-opt-arr {
+        cursor: pointer;
+        width: 16px;
+        height: 16px;
+        color: $color-grey;
+        transition: 100ms;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  //O conteúdo
+  .fg-ct {
+    margin-top: 1rem;
+    width: 100%;
+    transition: 300ms;
+  }
+
+  //Quando estiver fechado
+  &.isClosed {
+    .fg-hd-opt-arr {
+      transform: rotate(0deg) !important;
+    }
+
+    .fg-ct {
+      margin-top: 0 !important;
+      opacity: 0 !important;
+    }
+  }
+
+  //Estilização de danger
+  &.danger {
+    border: 1px solid $color-danger;
+
+    .fg-hd-if-ic {
+      color: $color-danger;
+    }
+  }
+
+  //Estilização de warning
+  &.warning {
+    border: 1px solid $color-warning;
+
+    .fg-hd-if-ic {
+      color: $color-warning;
+    }
+  }
+
+}

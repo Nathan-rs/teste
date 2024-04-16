@@ -1,0 +1,17 @@
+{
+	"name": "allinsys-test-boilerplate",
+	"version": "1.0.0",
+	"description": "Teste de criação de componente",
+	"main": "index.html",
+	"author": "Fernando Petri",
+	"license": "ISC",
+	"devDependencies": {
+		"grunt": "^1.6.1"
+	},
+	"dependencies": {
+		"grunt-cli": "^1.4.3",
+		"grunt-contrib-concat": "^2.1.0",
+		"grunt-contrib-watch": "^1.1.0",
+		"jquery": "^3.7.1"
+	}
+}
