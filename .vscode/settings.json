@@ -1,0 +1,12 @@
+{
+    "explorer.confirmDelete": false,
+    "liveSassCompile.settings.formats": [
+
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/build/styles",
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false
+}

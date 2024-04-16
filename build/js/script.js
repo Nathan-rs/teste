@@ -4185,28 +4185,7 @@ class ModalMaps {
                 zoomControl: true
             });
 
-            // this.createSearchBar(map)
-
-            const divSe = new Div('dv-se')
-            const inputSe = new Input('ipt-se')
-
-            inputSe.attr('placehold', 'Pesquisar')
-
-            divSe.append(inputSe)
-
-            const autocomplete = new google.maps.places.Autocomplete(inputSe[0], {
-                types: ['establishment'],
-                componentRestrictions: {'country': ['AU']},
-                fields: ['place_id', 'geometry', 'name']
-            })
-
-            if(autocomplete){
-                console.log('sim')
-            }else{
-                console.log('nao')
-            }
-
-            map.controls[google.maps.ControlPosition.TOP_CENTER].push(divSe[0])
+            this.createSearchBar(map)
 
             //Button custom location map
             const customButton = this.createButtonLocationUser(map)
@@ -4269,7 +4248,9 @@ class ModalMaps {
         return controlDiv
     }
 
-    createSearchBar(map) {
+    async createSearchBar(map) {
+        const {Autocomplete} = await google.maps.importLibrary("places")
+
         const divSearch = new Div('dv-search')
         const inputSearch = new Input('seach')
         const options = {
@@ -4283,12 +4264,13 @@ class ModalMaps {
 
         const autocomplete = new google.maps.places.Autocomplete(inputSearch[0], options)
 
-        autocomplete.addListener('place_changed', () => {
-            console.log(autocomplete)
+        autocomplete.addListener('place_changed', (value) => {
+            console.log(value.target.value)
         })
 
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(divSearch[0])
     }
+    
 
     getUserLocation(map) {
         if(navigator.geolocation) {
@@ -4312,7 +4294,6 @@ class ModalMaps {
     
                 map.setCenter(userLocation)
                 this.setAdress()
-
             })
         }
     }
